@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get("/terms", function () {
     return view('terms');
 });
+
+Route::get("/test", [TestController::class, 'index']);

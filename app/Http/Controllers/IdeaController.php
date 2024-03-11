@@ -25,4 +25,9 @@ class IdeaController extends Controller
     {
         return view('ideas.show', ["idea" => $idea]);
     }
+
+    public function edit(Idea $idea)
+    {
+        return view('ideas.edit', ["idea" => $idea]);
+    }
 }

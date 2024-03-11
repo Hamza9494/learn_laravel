@@ -21,3 +21,4 @@ Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
 Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
 
 Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('ideas.edit');
+Route::post('/ideas/{idea}/edit', [IdeaController::class, 'update'])->name('ideas.update');

@@ -30,4 +30,10 @@ class IdeaController extends Controller
     {
         return view('ideas.edit', ["idea" => $idea]);
     }
+
+    public function update(Idea $idea)
+    {
+        $idea->update(["content" => request()->input("modified")]);
+        return redirect()->route('dashboard')->with('success', 'idea updated successfully');;
+    }
 }

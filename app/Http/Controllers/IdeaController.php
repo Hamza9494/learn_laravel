@@ -23,6 +23,7 @@ class IdeaController extends Controller
 
     public function show(Idea $idea)
     {
+        // dd($idea->comments);
         return view('ideas.show', ["idea" => $idea]);
     }
 

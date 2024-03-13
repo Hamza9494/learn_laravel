@@ -27,5 +27,6 @@
                 {{$comment->content}}
         </div>
     </div>
+    <hr>
     @endforeach
 </div>

@@ -5,7 +5,7 @@
 
         @csrf
         <div class="mb-3">
-            <textarea name="modified" class="form-control" id="modified" rows="3"> {{$idea->content}} </textarea>
+            <textarea name="content" class="form-control" id="content" rows="3"> {{$idea->content}} </textarea>
         </div>
         <div class="">
             <button class="btn btn-dark"> update </button>

@@ -9,14 +9,19 @@ class IdeaController extends Controller
 {
     public function store()
     {
-        // dd(request()->all());
         $validated = request()->validate(["content" => "required|min:12|max:240"]);
-        Idea::create(request()->all());
+
+        $validated["user_id"] = auth()->id();
+
+        Idea::create($validated);
         return redirect()->route('dashboard')->with('success', 'idea added successfully');
     }
 
     public function destroy(Idea $idea)
     {
+        if (auth()->id() !== $idea->user_id) {
+            abort(404, 'cant delete what is not yours my dude');
+        }
         $idea->delete();
 
         return redirect()->route('dashboard')->with('success', 'idea deleted successfully');
@@ -30,11 +35,19 @@ class IdeaController extends Controller
 
     public function edit(Idea $idea)
     {
+        if (auth()->id() !== $idea->user_id) {
+            abort(404, 'cant view edite what is not yours my dude');
+        }
+
         return view('ideas.edit', ["idea" => $idea]);
     }
 
     public function update(Idea $idea)
     {
+        if (auth()->id() !== $idea->user_id) {
+            abort(404, 'cant edite what is not yours my dude');
+        }
+
         $validated = request()->validate(["content" => "required|min:12|max:240"]);
 
         $idea->update($validated);

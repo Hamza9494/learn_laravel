@@ -47,7 +47,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($validated)) {
-            return Redirect::route('dashboard')->with('success', 'logged in successfully');
+            return Redirect::route('dashboard')->with('success', 'logged in successfully!');
         } else {
             return redirect()->route('login')->withErrors(["email" => "no matching user email or password found"]);
         }

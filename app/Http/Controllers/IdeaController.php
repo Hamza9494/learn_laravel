@@ -9,7 +9,7 @@ class IdeaController extends Controller
 {
     public function store()
     {
-        $validated = request()->validate(["content" => "required|min:12|max:240"]);
+        $validated = request()->validate(["content" => "required|min:8|max:240"]);
 
         $validated["user_id"] = auth()->id();
 
@@ -23,6 +23,7 @@ class IdeaController extends Controller
             abort(404, 'cant delete what is not yours my dude');
         }
         $idea->delete();
+
 
         return redirect()->route('dashboard')->with('success', 'idea deleted successfully');
     }

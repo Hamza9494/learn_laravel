@@ -9,14 +9,18 @@
 
         @include('shared.submit-idea')
         <hr>
-        @foreach ($ideas as $idea)
-
+        @forelse ($ideas as $idea)
         <div class="mt-3">
             @include('shared.idea-card')
         </div>
+        @empty
+        <h3 class="text-center my-3"> No results found for " {{request('search')}} " </h3>
+        @endforelse
 
-        @endforeach
-        {{$ideas->links()}}
+
+
+
+        {{$ideas->withQueryString()->links()}}
     </div>
     <div class="col-3">
         @include('shared.search-bar')

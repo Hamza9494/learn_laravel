@@ -32,6 +32,7 @@ Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store')->mi
 
 Route::post('/ideas/{idea}/comment', [CommentController::class, 'store'])->name('ideas.comments.store')->middleware('auth');
 
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');

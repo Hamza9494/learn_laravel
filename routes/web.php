@@ -32,6 +32,16 @@ Route::post('/ideas', [IdeaController::class, 'store'])->name('store')->middlewa
 
 Route::post('/ideas/{idea}/comment', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+
+Route::post('/register', [AuthController::class, 'store']);
+
+Route::post('/login', [AuthController::class, 'authenticate']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 //Route::resource('ideas', IdeaController::class)->except(['create', 'index', 'show'])->middleware('auth');
 

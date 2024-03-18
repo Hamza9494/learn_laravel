@@ -17,9 +17,6 @@
         <h3 class="text-center mt-3"> No results found for " {{request('search')}} " </h3>
         @endforelse
 
-
-
-
         {{$ideas->withQueryString()->links()}}
     </div>
     <div class="col-3">

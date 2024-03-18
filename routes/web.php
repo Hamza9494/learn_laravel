@@ -19,24 +19,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-// Route::group(['prefix' => 'ideas/', 'as' => "ideas."], function () {
 
-// Route::get('/{idea}', [IdeaController::class, 'show'])->name('show');
+Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('show');
 
-// Route::get('/{idea}/edit', [IdeaController::class, 'edit'])->name('edit')->middleware('auth');
+Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('edit')->middleware('auth');
 
-// Route::post('/{idea}/edit', [IdeaController::class, 'update'])->name('update')->middleware('auth');;
+Route::post('/ideas/{idea}/edit', [IdeaController::class, 'update'])->name('update')->middleware('auth');;
 
-// Route::delete('/{idea}', [IdeaController::class, 'destroy'])->name('destroy')
-//     ->middleware('auth');
+Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name('destroy')->middleware('auth');
 
-// Route::post('', [IdeaController::class, 'store'])->name('store')->middleware('auth');
+Route::post('/ideas', [IdeaController::class, 'store'])->name('store')->middleware('auth');
 
-// Route::post('/{idea}/comment', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
-// });
+Route::post('/ideas/{idea}/comment', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 
-Route::resource('ideas', IdeaController::class)->except(['create', 'index', 'show'])->middleware('auth');
 
-Route::resource('ideas', IdeaController::class)->only('show');
+//Route::resource('ideas', IdeaController::class)->except(['create', 'index', 'show'])->middleware('auth');
 
-Route::resource('ideas.comments', CommentController::class)->only('store')->middleware('auth');
+//Route::resource('ideas', IdeaController::class)->only('show');
+
+// Route::resource('ideas.comments', CommentController::class)->only('store')->middleware('auth');

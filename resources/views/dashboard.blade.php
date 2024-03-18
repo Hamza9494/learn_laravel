@@ -14,7 +14,7 @@
             @include('shared.idea-card')
         </div>
         @empty
-        <h3 class="text-center my-3"> No results found for " {{request('search')}} " </h3>
+        <h3 class="text-center mt-3"> No results found for " {{request('search')}} " </h3>
         @endforelse
 
 

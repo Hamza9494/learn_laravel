@@ -8,30 +8,22 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      */
     public function show(User $user)
     {
-        return view("users.show", ['user' => $user]);
+        $ideas = $user->ideas()->paginate(3);
+        return view("users.show", ['user' => $user, 'ideas' => $ideas]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        $editing = true;
+        return view("users.show", ['user' => $user, 'editing' => $editing]);
     }
 
     /**

@@ -6,6 +6,11 @@
         </div>
         <div>
             <button class="btn btn-primary btn-sm"> Post Comment </button>
+
+            @error('content')
+            <span class="d-block fs-6 text-danger my-2"> {{$message}} </span>
+
+            @enderror
         </div>
     </form>
 

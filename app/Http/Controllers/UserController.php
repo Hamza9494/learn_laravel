@@ -23,7 +23,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $editing = true;
-        return view("users.show", ['user' => $user, 'editing' => $editing]);
+        $ideas = $user->ideas()->paginate(3);
+        return view("users.show", ['user' => $user, 'editing' => $editing, 'ideas' => $ideas]);
     }
 
     /**
